@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I can do it!</title>
+</head>
+<body>
+    asdsadsadsad
+    <h1 id="sound"></h1>
+    <input type="text" id="name">
+    <button onclick="getSound()">API 요청</button>
+    <script>
+        function getSound() {
+            const name = document.querySelector('#name').value;
+            fetch(`http://localhost:3000/sound/${name}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                document.querySelector('#sound').innerHTML = data.sound;
+            });
+        }
+    </script>
+</body>
+</html>

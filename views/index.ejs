@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>댓글 목록</h1>
+    <ul>
+        <% for (comments of comments) { %>
+            <li><%=comments.Content %></li>
+            <form action="/update/<%=comments.id%>" method="post">
+                <input type="text" id="name" name="content">
+                <input type="submit" value="수정하기">
+            </form>
+            <form action="/delete/<%=comments.id%>" method="post">
+                <input type="submit" value="삭제하기">
+            </form>
+        <% } %>
+    </ul>
+    <hr>
+    <form action="/create" method="post">
+    <input type="text" id="name" name="content"><br>
+    <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
